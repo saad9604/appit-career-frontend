@@ -26,7 +26,7 @@ const CareerApplyContent = () => {
       try {
         const response = await axios.get(`https://appit-backend-wb0d.onrender.com/get-job-id/${id}`);
         console.log('response', response.data);
-        setJobData(response.data.job);
+        setJobData(response?.data?.job);
       } catch (err) {
         console.error("Error fetching job:", err);
       }
