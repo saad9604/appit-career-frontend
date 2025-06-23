@@ -197,7 +197,7 @@ export default function Header() {
                 onClick={toggleWhatWeDo}
                 type="button"
               >
-                What We Do
+                What We Do bro
                 <svg 
                   className={`ml-2 w-5 h-5 ${isInitialRender ? 'no-transition' : 'transition-transform duration-300'} ${isWhatWeDoOpen ? 'rotate-180' : ''}`} 
                   fill="none" 

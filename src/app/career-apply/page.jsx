@@ -14,7 +14,7 @@ const CareerApplyContent = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <CareerApplyHero />
       <div className="w-full bg-[#FFFF] min-h-screen flex flex-col items-center font-['Jost']">
         <div className="w-full pl-3 sm:pl-6 md:pl-10 lg:pl-16 mt-2 sm:mt-4 md:mt-6">

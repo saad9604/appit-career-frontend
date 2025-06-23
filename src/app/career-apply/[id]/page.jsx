@@ -35,19 +35,14 @@ const CareerApplyContent = () => {
   }, [id]);
   return (
     <>
-      <Header />
-      <CareerApplyHero />
+      {/* <Header /> */}
       <div className="w-full bg-[#FFFF] min-h-screen flex flex-col items-center font-['Jost']">
-        <div className="w-full pl-3 sm:pl-6 md:pl-10 lg:pl-16 mt-2 sm:mt-4 md:mt-6">
-          <CareerApplyBreadcrumb />
-        </div>
+       
         {jobData ? (
           <JobApplicationSection jobData={jobData} />
         ) : (
           <div className="py-10 text-center text-gray-500">Loading job details...</div>
         )}
-        <Benefits />
-        <AboveFooterSection />
       </div>
       <Footer />
       <ScrollToTopButton />

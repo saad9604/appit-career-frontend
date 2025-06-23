@@ -11,7 +11,7 @@ import ScrollToTopButton from '@/components/home/ScrollToTopButton'
 export default function CareerPage() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main>
         <CareerHero />
         <CareerFirstSection />

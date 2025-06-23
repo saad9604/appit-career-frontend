@@ -16,7 +16,7 @@ import React from 'react';
 const CareerSearchPage = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <CareerSearchHero />
       <div className="w-full bg-[#FFFF] min-h-screen flex flex-col items-center font-['Jost']">
         <div className="w-full mt-8 sm:mt-10 md:mt-12">

@@ -30,7 +30,7 @@ const MainLayout = ({ children }) => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className="pt-[96px]">
         {children}
       </div>
