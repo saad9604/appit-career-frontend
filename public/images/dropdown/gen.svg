@@ -1,0 +1,11 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle border with exact styling to match other icons -->
+  <rect x="0.25" y="0.25" width="47.5" height="47.5" rx="23.75" fill="white"/>
+  <rect x="0.25" y="0.25" width="47.5" height="47.5" rx="23.75" stroke="black" stroke-width="0.5"/>
+  
+  <!-- Your original gen.svg content, scaled and centered -->
+  <g transform="translate(7, 7) scale(0.28)">
+    <path d="M105 40C97.75 40 93.7 47.2 95.35 52.55L77.6 70.35C76.1 69.9 73.9 69.9 72.4 70.35L59.65 57.6C61.35 52.25 57.3 45 50 45C42.75 45 38.65 52.2 40.35 57.6L17.55 80.35C12.2 78.7 5 82.75 5 90C5 95.5 9.5 100 15 100C22.25 100 26.3 92.8 24.65 87.45L47.4 64.65C48.9 65.1 51.1 65.1 52.6 64.65L65.35 77.4C63.65 82.75 67.7 90 75 90C82.25 90 86.35 82.8 84.65 77.4L102.45 59.65C107.8 61.3 115 57.25 115 50C115 44.5 110.5 40 105 40Z" fill="black"/>
+    <path d="M75 45L79.7 34.65L90 30L79.7 25.35L75 15L70.4 25.35L60 30L70.4 34.65L75 45ZM17.5 55L20 45L30 42.5L20 40L17.5 30L15 40L5 42.5L15 45L17.5 55Z" fill="black"/>
+  </g>
+</svg>

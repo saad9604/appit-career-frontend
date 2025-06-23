@@ -1,0 +1,40 @@
+/* Add the animation for the VisionaryLeader component */
+.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Style for the animated elements */
+.visionary-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visionary-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Team card hover animation */
+.team-card {
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.8s ease, opacity 0.5s ease !important;
+}
+
+.team-card:hover {
+  transform: translateY(-14px) !important;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1) !important;
+  z-index: 10;
+}

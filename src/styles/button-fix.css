@@ -1,0 +1,63 @@
+/* Hard override for hover button styles */
+.hover-button:hover,
+#button-oracle:hover,
+#button-offshore:hover, 
+#button-cyber:hover,
+#button-ai:hover,
+#button-ecommerce:hover,
+#button-mobile:hover,
+button[class*="hover-button"]:hover {
+  background-color: #005592 !important;
+  border-color: #005592 !important;
+  color: white !important;
+}
+
+.hover-button:hover span,
+#button-oracle:hover span,
+#button-offshore:hover span,
+#button-cyber:hover span,
+#button-ai:hover span,
+#button-ecommerce:hover span,
+#button-mobile:hover span,
+button[class*="hover-button"]:hover span {
+  color: #FFFFFF !important;
+}
+
+.hover-button:hover rect,
+#button-oracle:hover rect,
+#button-offshore:hover rect,
+#button-cyber:hover rect,
+#button-ai:hover rect,
+#button-ecommerce:hover rect,
+#button-mobile:hover rect,
+button[class*="hover-button"]:hover rect {
+  stroke: #FFFFFF !important;
+}
+
+.hover-button:hover path,
+#button-oracle:hover path,
+#button-offshore:hover path,
+#button-cyber:hover path,
+#button-ai:hover path,
+#button-ecommerce:hover path,
+#button-mobile:hover path,
+button[class*="hover-button"]:hover path {
+  fill: #FFFFFF !important;
+}
+
+/* Make sure buttons are clickable */
+.content1, .content2, .content3, .content4, .content5, .content6 {
+  pointer-events: none !important;
+}
+
+.button-container {
+  pointer-events: auto !important;
+  z-index: 9999 !important;
+}
+
+button.hover-button {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  position: relative !important;
+}

@@ -1,0 +1,14 @@
+/* Directly apply Jost font from Google Fonts */
+.font-jost {
+  font-family: 'Jost', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Target elements with font-family: Jost in inline style */
+[style*="font-family: Jost"] {
+  font-family: 'Jost', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Target any class that contains font-jost */
+[class*="font-jost"] {
+  font-family: 'Jost', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}

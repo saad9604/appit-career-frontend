@@ -1,0 +1,20 @@
+/* Blog card animations */
+.blog-card {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: transform, opacity;
+  transition: transform 0.85s cubic-bezier(0.25, 0.1, 0.25, 1),
+              opacity 0.85s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Only apply animation when JavaScript is enabled and class is applied */
+.js-enabled .blog-card {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Visible state */
+.js-enabled .blog-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

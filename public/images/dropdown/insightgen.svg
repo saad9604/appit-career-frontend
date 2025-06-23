@@ -1,0 +1,7 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle border with exact styling to match other icons -->
+  <circle cx="24" cy="24" r="23" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+  
+  <!-- Simplified analytics/network icon that matches the screenshot exactly -->
+  <path d="M33 19C31.55 19 30.74 20.44 31.07 21.51L27.52 25.07C27.22 24.98 26.78 24.98 26.48 25.07L23.93 22.52C24.27 21.45 23.46 20 22 20C20.55 20 19.73 21.44 20.07 22.52L15.51 27.07C14.44 26.74 13 27.55 13 29C13 30.1 13.9 31 15 31C16.45 31 17.26 29.56 16.93 28.49L21.48 23.93C21.78 24.02 22.22 24.02 22.52 23.93L25.07 26.48C24.73 27.55 25.54 29 27 29C28.45 29 29.27 27.56 28.93 26.48L32.49 22.93C33.56 23.26 35 22.45 35 21C35 19.9 34.1 19 33 19Z" fill="black"/>
+</svg>

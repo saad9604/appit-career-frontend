@@ -1,0 +1,9 @@
+/* Custom Font Class Definitions */
+.font-jost {
+  font-family: 'Jost', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Reset default font-family for certain elements */
+h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select, option {
+  font-family: inherit;
+}

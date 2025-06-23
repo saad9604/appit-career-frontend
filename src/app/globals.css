@@ -1,0 +1,265 @@
+/* Standard Tailwind CSS v3 directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import for Tailwind CSS v4 compatibility (commented out to avoid conflicts) */
+/* @import "tailwindcss"; */
+/* @import "tw-animate-css"; */
+
+/* Base Variables from both projects */
+:root {
+  /* Original combined project variables */
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  
+  /* Talha project variables */
+  --radius: 0.625rem;
+  --white: oklch(1 0 0);
+  --black: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-black: #252525;
+  --popover: oklch(1 0 0);
+  --popover-black: oklch(0.145 0 0);
+  --primary: #0066b3;
+  --primary-black: oklch(0.985 0 0);
+  --secondary: #ec1c26;
+  --secondary-black: #0066b3;
+  --muted: oklch(0.97 0 0);
+  --muted-black: oklch(0.556 0 0);
+  --accent: #5c98ff;
+  --accent-black: var(--black);
+  --accent-white: var(--white);
+  --destructive: #be0808;
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-black: oklch(0.145 0 0);
+  --sidebar-primary: #0066b3;
+  --sidebar-primary-black: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-black: #0066b3;
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --success: #22ac37;
+  --grey1: #f5f6fa;
+  --dark-blue: #031328;
+  --bg: #f7f6f9;
+  --purple: #6366f1;
+  --gold: #c4ae07;
+  --pink: #b126c7;
+  --orange: #ff7700;
+}
+
+/* Dark mode variables from both projects */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.dark {
+  --white: oklch(0.145 0 0);
+  --black: oklch(0.985 0 0);
+  --card: #1a1a1a;
+  --card-black: #252525;
+  --popover: #1a1a1a;
+  --popover-black: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-black: #1a1a1a;
+  --secondary: #ec1c26;
+  --secondary-black: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-black: oklch(0.708 0 0);
+  --accent: #5c98ff;
+  --accent-black: var(--black);
+  --accent-white: var(--white);
+  --destructive: #be0808;
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: #1a1a1a;
+  --sidebar-black: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-black: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-black: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+  --success: #22ac37;
+  --grey1: #f5f6fa;
+  --dark-blue: #031328;
+  --bg: #0a0a0a;
+  --purple: #6366f1;
+  --pink: #b126c7;
+  --orange: #ff7700;
+}
+
+/* Base styles from both projects */
+html, body {
+  color: rgb(var(--foreground-rgb));
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@layer base {
+  /* Removed universal border that was causing boxes around all elements */
+  * {
+    outline-color: var(--ring);
+  }
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  .um_transition {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+  }
+  .um_transition:hover {
+    transition-duration: 300ms;
+  }
+
+  /* Add this to your global stylesheet */
+  .shadow-equal {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Scrollbar styles from combined project */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* Hide scrollbars while allowing scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+/* Fix for full-width sections */
+section {
+  overflow-x: clip;
+}
+
+/* Fix for any elements using the 100vw technique */
+[style*="100vw"], 
+[style*="-50vw"] {
+  overflow-x: clip;
+}
+
+/* Blog page animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Autocomplete styles from talha project */
+.autocomplete {
+  background-color: var(--card-bg, #fff);
+  color: var(--black, #000);
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+.autocomplete div[role="option"] {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.autocomplete div[role="option"]:hover {
+  white-color: var(--accent-bg, #0070f3);
+  color: var(--accent-black, #fff);
+}
+
+.autocompleter-list > div.active,
+.autocompleter-list > div.selected {
+  background-color: var(--primary);
+  color: var(--primary-black);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Text shadow utility class */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,369 @@
+.animated-counter {
+  color: #FFCE0C;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  font-family: 'Jost', sans-serif;
+}
+
+@media (max-width: 1200px) {
+  .animated-counter {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 992px) {
+  .animated-counter {
+    font-size: 36px;
+  }
+}
+
+.stats-section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding: 60px 0; /* Remove horizontal padding */
+  position: relative;
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.stats-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stats-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping on large screens */
+  justify-content: center;
+  min-width: 1200px; /* Minimum width to fit all cards */
+  margin: 0 auto;
+  gap: 0; /* Remove gap between cards */
+}
+
+.stats-card {
+  display: flex;
+  width: 300px; /* Fixed width of 300px per card */
+  height: 160px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 0.2px solid #FFF;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  padding: 48px 45px; /* Use the specified padding */
+}
+
+.stats-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.stats-text {
+  color: #FFF;
+  font-family: 'Jost', sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  max-width: 200px;
+  text-align: center;
+}
+
+.stats-section.visible .stats-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stats-section.visible .stats-card:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.stats-section.visible .stats-card:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.stats-section.visible .stats-card:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.stats-section.visible .stats-card:nth-child(4) {
+  transition-delay: 0.8s;
+}
+
+.stats-card:nth-child(1) {
+  border-radius: 24px 0px 0px 24px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(/images/frame1.png) lightgray 50% / cover no-repeat;
+  transition-delay: 0.2s;
+}
+
+.stats-card:nth-child(2) {
+  padding: 48px 62px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url(/images/frame2.png) lightgray 50% / cover no-repeat;
+  transition-delay: 0.4s;
+}
+
+.stats-card:nth-child(3) {
+  padding: 48px 96px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url(/images/frame3.png) lightgray 50% / cover no-repeat;
+  transition-delay: 0.6s;
+}
+
+.stats-card:nth-child(4) {
+  border-radius: 0px 24px 24px 0px;
+  padding: 49px 76px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url(/images/frame4.png) lightgray 50% / cover no-repeat;
+  transition-delay: 0.8s;
+}
+
+/* For responsive design */
+@media (max-width: 1200px) {
+  .stats-container {
+    min-width: auto;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+    gap: 15px;
+  }
+  
+  .stats-card {
+    width: 280px;
+    height: 150px;
+    padding: 40px 30px !important;
+    margin-bottom: 15px;
+    border-radius: 24px !important;
+  }
+  
+  .stats-text {
+    font-size: 18px;
+  }
+}
+
+/* For medium-large screens (992px-1200px) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .stats-section {
+    padding: 60px 20px; /* Add more horizontal padding */
+    overflow: hidden; /* Prevent horizontal scroll */
+  }
+  
+  .stats-container {
+    min-width: auto;
+    max-width: 92%; /* Reduce width further */
+    width: 92%;
+    margin: 0 auto; /* Center the container */
+    flex-wrap: nowrap; /* Ensure no wrapping */
+    justify-content: space-between; /* Distribute space evenly */
+    padding: 0;
+    gap: 0; /* No gap between cards to match larger screens */
+  }
+  
+  .stats-card {
+    width: 25%; /* Equal width for each card */
+    min-width: 0; /* Allow cards to shrink as needed */
+    max-width: none; /* Remove max-width to allow cards to fill the space */
+    height: 150px;
+    padding: 20px 15px !important; /* Reduce padding */
+    margin-bottom: 0;
+    border-radius: 0 !important;
+    border-width: 0.2px !important; /* Ensure consistent border width */
+  }
+  
+  .stats-card:nth-child(1) {
+    border-radius: 24px 0 0 24px !important;
+  }
+  
+  .stats-card:nth-child(4) {
+    border-radius: 0 24px 24px 0 !important;
+  }
+  
+  .stats-text {
+    font-size: 16px; /* Reduce font size */
+    max-width: 100%;
+  }
+  
+  .animated-counter {
+    font-size: 32px; /* Reduce counter size */
+  }
+  
+  .stats-content {
+    gap: 10px; /* Reduce gap between counter and text */
+  }
+}
+
+@media (max-width: 991px) {
+  .stats-container {
+    gap: 15px;
+    padding: 0 15px;
+    flex-wrap: wrap; /* Allow wrapping on medium screens */
+  }
+  
+  .stats-card {
+    width: 45%; /* Two cards per row */
+    height: 170px;
+    border-radius: 20px !important;
+    padding: 35px !important;
+    margin-bottom: 15px;
+  }
+  
+  .stats-card:nth-child(1), .stats-card:nth-child(2), 
+  .stats-card:nth-child(3), .stats-card:nth-child(4) {
+    border-radius: 20px !important;
+  }
+  
+  .stats-text {
+    font-size: 18px;
+    max-width: 220px;
+  }
+  
+  .animated-counter {
+    font-size: 36px;
+  }
+}
+
+/* Special breakpoint for around 770px */
+@media (min-width: 769px) and (max-width: 991px) {
+  .stats-container {
+    gap: 20px;
+    padding: 0 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .stats-card {
+    width: 45%; /* Two cards per row */
+    height: 180px;
+    border-radius: 20px !important;
+    padding: 35px !important;
+    margin-bottom: 20px;
+  }
+  
+  .stats-text {
+    font-size: 18px;
+    max-width: 220px;
+  }
+  
+  .animated-counter {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-section {
+    padding: 40px 10px;
+  }
+  
+  .stats-container {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  .stats-card {
+    width: 100%;
+    max-width: 600px; /* Increased width */
+    height: 200px;
+    border-radius: 20px !important;
+    margin: 8px 0;
+    padding: 35px !important;
+  }
+  
+  .stats-text {
+    font-size: 22px;
+    max-width: 300px;
+  }
+  
+  .animated-counter {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-section {
+    padding: 30px 15px; /* Increased horizontal padding */
+  }
+  
+  .stats-card {
+    width: 100%;
+    max-width: 650px; /* Increased width significantly */
+    height: 240px;
+    padding: 35px 20px !important;
+    margin-bottom: 25px;
+  }
+  
+  .stats-text {
+    font-size: 22px;
+    max-width: 280px;
+    margin-top: 10px;
+  }
+  
+  .animated-counter {
+    font-size: 52px;
+  }
+  
+  .stats-content {
+    gap: 25px;
+  }
+}
+
+/* iPhone XR and similar devices */
+@media (min-width: 400px) and (max-width: 480px) {
+  .stats-card {
+    height: 300px;
+    width: 100%;
+    max-width: 700px; /* Increased width */
+    padding: 40px 25px !important;
+    margin: 0 auto 30px;
+  }
+  
+  .animated-counter {
+    font-size: 65px;
+  }
+  
+  .stats-text {
+    font-size: 24px;
+    max-width: 350px; /* Increased text width */
+    margin-top: 15px;
+  }
+  
+  .stats-content {
+    gap: 30px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+  .stats-card {
+    height: 320px;
+    width: 100%;
+    max-width: 100%; /* Take full width of the container */
+    padding: 40px 25px !important;
+    margin: 0 auto 30px;
+  }
+  
+  .animated-counter {
+    font-size: 70px;
+  }
+  
+  .stats-text {
+    font-size: 26px;
+    max-width: 100%; /* Full width text */
+    margin-top: 15px;
+  }
+}
