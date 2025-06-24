@@ -10,7 +10,7 @@ export default function JobApplyModal({ fileInputRef, closeMessage, fileName, se
 
     return (
         <div className="fixed inset-0 z-50 flex items-start justify-center pt-10 bg-black bg-opacity-40">
-            <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-0 relative max-h-[80vh] overflow-y-auto">
+            <div className="bg-white rounded-2xl shadow-2xl w-[98vw] max-w-3xl p-0 relative">
                 <div className="flex items-center gap-3 px-8 pt-8 pb-2">
                     <button
                         className="text-gray-600 hover:text-blue-700 text-xl"
@@ -30,8 +30,8 @@ export default function JobApplyModal({ fileInputRef, closeMessage, fileName, se
                         Kindly ensure you answer all the recruiter’s questions accurately and upload your updated resume to successfully apply for the position.
                     </p>
                 </div>
-                <div className="w-[90%] xs:w-[90%] sm:w-[90%] md:w-[80%] max-w-[320px] sm:max-w-[340px] md:max-w-[360px] lg:w-[380px] xl:w-[414px] mx-auto mt-8 mb-8 py-5 sm:py-6 lg:py-6 px-4 sm:px-5 md:px-6 lg:px-4 xl:px-6 flex flex-col items-center gap-6 sm:gap-8 md:gap-10 bg-white rounded-[20px] sm:rounded-[24px] md:rounded-[50px] shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] relative z-20">
-                    <h3 className="w-full max-w-[332px] text-lg sm:text-xl md:text-[21px] font-semibold leading-[120%] text-center text-black">
+                <div className="w-full max-w-2xl mx-auto mt-8 mb-8 py-5 px-4 flex flex-col items-center gap-8 bg-white rounded-2xl shadow relative z-20">
+                    <h3 className="w-full max-w-[600px] text-xl font-semibold leading-[120%] text-center text-black">
                         Apply Now and help shape the future with APPIT
                     </h3>
 

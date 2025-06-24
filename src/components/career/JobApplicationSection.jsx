@@ -454,7 +454,7 @@ const JobApplicationSection = ({ jobData }) => {
               </div>
 
               {/* Job post details */}
-              <div className="w-full flex flex-wrap items-center gap-4 sm:gap-6 mt-1 text-sm sm:text-base font-normal text-[#4F4F4F]">
+              <div className="w-full  flex flex-wrap items-center gap-4 sm:gap-6 mt-1 text-sm sm:text-base font-normal text-[#4F4F4F]">
                 <div className="flex items-center gap-2">
                   <span>{formatPostedDate(jobData?.created_at)}</span>
                   <span>Openings: 2</span>
@@ -463,7 +463,7 @@ const JobApplicationSection = ({ jobData }) => {
                 <div>
                   <button
                     onClick={() => setModalOpen(true)}
-                    className="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition"
+                    className="px-8 py-1 rounded  text-white  transition rounded-2xl text-white font-semibold text-lg bg-gradient-to-r from-[#002C4D] to-[#0066B3] shadow-[0_2px_8px_0_rgba(0,0,0,0.10)] border border-white/60 hover:from-[#001f36] hover:to-[#005696] transition-all duration-200"
                   >
                     Apply
                   </button>                
