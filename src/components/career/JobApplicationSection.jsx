@@ -38,6 +38,7 @@ const JobApplicationSection = ({ jobData }) => {
   const [submitError, setSubmitError] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [applyJobModalOpen, setApplyJobModalOpen] = useState(false);
+  const [screeningAnswers, setScreeningAnswers] = useState(null);
   // Refs
   const formRef = useRef(null);
   const fileInputRef = useRef(null);
@@ -296,82 +297,103 @@ const JobApplicationSection = ({ jobData }) => {
   };
 
   // Handle form submission with AJAX
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (validateForm()) {
-      setIsSubmitting(true);
+  if (validateForm()) {
+    setIsSubmitting(true);
 
-      try {
-        const submitFormData = new FormData();
-        submitFormData.append('name', formData.name);
-        submitFormData.append('email', formData.email);
-        submitFormData.append('phone', formData.phone);
-        submitFormData.append('message', formData.message);
+    try {
+      const submitFormData = new FormData();
+      submitFormData.append('name', formData.name);
+      submitFormData.append('email', formData.email);
+      submitFormData.append('phone', formData.phone);
+      submitFormData.append('message', formData.message);
 
-        if (file) {
-          submitFormData.append('attachment', file);
+      if (file) {
+        submitFormData.append('attachment', file);
+      }
+
+      const apiUrl = `https://appit-backend-wb0d.onrender.com/apply-job/${jobData?.id}`;
+
+      const response = await axios.post(apiUrl, submitFormData, {
+        headers: {
+          'Accept': 'application/json',
         }
+      });
 
-        // Send to your backend with job id as param
-        // const apiUrl = `http://localhost:5000/apply-job/${jobData.id}`;
-        const apiUrl = `https://appit-backend-wb0d.onrender.com/apply-job/${jobData?.id}`;
-
-        const response = await axios.post(apiUrl, submitFormData, {
-          headers: {
-            'Accept': 'application/json',
-            // 'Content-Type' is set automatically by axios when using FormData
-          }
+      const result = response.data;
+      console.log("result...", result)
+      if (result && result.success) {
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          message: "Job Application for Jr UI UX Designer Intern"
         });
+        setFile(null);
+        setFileName("No file chosen");
+        setFileBase64("");
+        setFileSize("");
 
-        const result = response.data;
-
-        if (result && result.success) {
-          setIsSubmitting(false);
-          setSubmitSuccess(true);
-          setFormData({
-            name: "",
-            phone: "",
-            email: "",
-            message: "Job Application for Jr UI UX Designer Intern"
-          });
-          setFile(null);
-          setFileName("No file chosen");
-          setFileBase64("");
-          setFileSize("");
-          if (formRef.current) {
-            formRef.current.scrollIntoView({ behavior: 'smooth' });
-          }
-          setTimeout(() => {
-            setSubmitSuccess(false);
-          }, 20000);
-        } else {
-          setIsSubmitting(false);
-          setSubmitError('Failed to submit your application. Please try again later.');
-          setTimeout(() => {
-            setSubmitError("");
-          }, 20000);
+        if (formRef.current) {
+          formRef.current.scrollIntoView({ behavior: 'smooth' });
         }
-        setApplyJobModalOpen(false)
-      } catch (error) {
-        console.error("Form submission error:", error);
+
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 20000);
+
+        // ✅ Call screening answers API
+        try {
+          console.log("inside second try....", result.application.id)
+          const screeningResponse = await axios.post(
+            `https://appit-backend-wb0d.onrender.com/applications/${result.application.id}`,
+            { screening_answers: screeningAnswers }, // must be an object with 'screening_answers' key
+            {
+              headers: {
+                'Accept': 'application/json',
+              }
+            }
+          );
+
+          if (screeningResponse?.data?.success) {
+            console.log("Screening questions added successfully");
+          }
+        } catch (error) {
+          console.error("Error saving screening answers:", error);
+        }
+
+        setApplyJobModalOpen(false);
+      } else {
         setIsSubmitting(false);
         setSubmitError('Failed to submit your application. Please try again later.');
         setTimeout(() => {
           setSubmitError("");
         }, 20000);
       }
-    } else {
-      const firstErrorField = Object.keys(errors)[0];
-      const errorElement = document.querySelector(`[name="${firstErrorField}"]`);
-      if (errorElement) {
-        errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        errorElement.focus();
-      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setIsSubmitting(false);
+      setSubmitError('Failed to submit your application. Please try again later.');
+      setTimeout(() => {
+        setSubmitError("");
+      }, 20000);
     }
+  } else {
+    const firstErrorField = Object.keys(errors)[0];
+    const errorElement = document.querySelector(`[name="${firstErrorField}"]`);
+    if (errorElement) {
+      errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      errorElement.focus();
+    }
+  }
 
-    console.log('form data....', formData);
-  };
+  console.log('form data....', formData);
+};
+
 
   const formatPostedDate = (isoDate) => {
     if (!isoDate) return '';
@@ -466,7 +488,7 @@ const JobApplicationSection = ({ jobData }) => {
                     className="px-8 py-1 rounded  text-white  transition rounded-2xl text-white font-semibold text-lg bg-gradient-to-r from-[#002C4D] to-[#0066B3] shadow-[0_2px_8px_0_rgba(0,0,0,0.10)] border border-white/60 hover:from-[#001f36] hover:to-[#005696] transition-all duration-200"
                   >
                     Apply
-                  </button>                
+                  </button>
                 </div>
               </div>
 
@@ -541,8 +563,8 @@ const JobApplicationSection = ({ jobData }) => {
           will-change: transform;
         }
       `}</style>
-        <JobDataModal open={modalOpen} onClose={() => setModalOpen(false)} jobData={jobData} setApplyJobModalOpen={setApplyJobModalOpen}/>
-        <JobApplyModal fileInputRef={fileInputRef} closeMessage={closeMessage} fileName={fileName} setFileName={setFileName} handleInputChange={handleInputChange} errors={errors} setErrors={setErrors} handleSubmit={handleSubmit} fileSize={fileSize} handleUploadClick={handleUploadClick} handleFileChange={handleFileChange} formData={formData} setFormData={setFormData} setIsSubmitting={setIsSubmitting} isSubmitting={isSubmitting} submitError={submitError} setSubmitError={setSubmitError} submitSuccess={submitSuccess} open={applyJobModalOpen} onClose={() => setApplyJobModalOpen(false)}/>
+        <JobDataModal screeningAnswers={screeningAnswers} setScreeningAnswers={setScreeningAnswers} open={modalOpen} onClose={() => setModalOpen(false)} jobData={jobData} setApplyJobModalOpen={setApplyJobModalOpen} />
+        <JobApplyModal screeningAnswers={screeningAnswers} setScreeningAnswers={setScreeningAnswers} fileInputRef={fileInputRef} closeMessage={closeMessage} fileName={fileName} setFileName={setFileName} handleInputChange={handleInputChange} errors={errors} setErrors={setErrors} handleSubmit={handleSubmit} fileSize={fileSize} handleUploadClick={handleUploadClick} handleFileChange={handleFileChange} formData={formData} setFormData={setFormData} setIsSubmitting={setIsSubmitting} isSubmitting={isSubmitting} submitError={submitError} setSubmitError={setSubmitError} submitSuccess={submitSuccess} open={applyJobModalOpen} onClose={() => setApplyJobModalOpen(false)} />
       </section>
     );
   }

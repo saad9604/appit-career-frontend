@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 
-export default function JobApplyModal({ fileInputRef, closeMessage, fileName, setFileName, handleInputChange, setErrors, errors, handleSubmit, fileSize, handleUploadClick, handleFileChange, formData, setFormData, setIsSubmitting, isSubmitting, submitError, setSubmitError, submitSuccess, open, onClose }) {
+export default function JobApplyModal({screeningAnswers,setScreeningAnswers, fileInputRef, closeMessage, fileName, setFileName, handleInputChange, setErrors, errors, handleSubmit, fileSize, handleUploadClick, handleFileChange, formData, setFormData, setIsSubmitting, isSubmitting, submitError, setSubmitError, submitSuccess, open, onClose }) {
 
     const formRef = useRef(null);
     // const fileInputRef = useRef(null);
